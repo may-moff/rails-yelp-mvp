@@ -1,0 +1,21 @@
+<h1>See all Reviews for <%= @restaurant.name %></h1>
+<%= link_to 'Back to Index', restaurants_path, class: "btn btn-primary" %>
+
+<%= link_to 'Leave a Review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+<table>
+  <tr>
+    <td><%= @restaurant.name %></td>
+    <td><%= @restaurant.address %></td>
+    <td><%= @restaurant.category %></td>
+    <td><%= @restaurant.phone_number %></td>
+  </tr>
+</table>
+
+<table>
+  <% @restaurant.reviews.each do |review| %>
+  <tr>
+    <td><%= review.content %></td>
+    <td><%= review.rating %></td>
+  </tr>
+  <% end %>
+</table>
